@@ -1,0 +1,382 @@
+/*
+count.jsp中的样式
+*/
+.tab-content .panel{
+	margin:10px;
+	height:450px;
+	overflow:scroll;
+}
+#os-select{
+	margin:5px;
+	padding:5px;
+	height:45px;
+	overflow:hidden;
+}
+#flow-select{
+    margin: 5px;
+    padding: 5px;
+    height: 45px;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+	
+}
+.reporttypeBt {
+	border: #000000;
+	width: 220px;
+	text-align: right;
+	margin-left: 970px;
+	margin-top: 1px;
+	margin-bottom: -25px;
+}
+.pie-gragh{
+	margin-top: 10px;
+}
+.curve-gragh{
+	width:95%;
+}
+.well{
+	margin:10px;
+}
+#element{
+	position:fixed;
+	width:100%;
+	height:100%;
+}
+* {
+	padding: 0;
+	margin: 0;
+}
+li,a,#search:focus { outline: none; }
+
+#filter {
+	padding: 5px;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 5px #cccccc;
+	height:2em;
+}
+
+.box_table {
+	padding: 5px;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 5px #cccccc;
+	position: absolute;
+	left: 5px;
+	
+	width: 35%;
+	
+	overflow:auto;
+	height:400px;
+}
+
+.box_user_table {
+	padding: 5px;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 5px #cccccc;
+	position: absolute;
+	left: 5px;
+	right:10px;
+	
+	width: 100%;
+	top:580px;
+	
+	height:auto!important;   
+    height:300px;   
+    min-height:300px;
+}
+
+.box_gragh {
+	margin:0 auto;
+	padding: 5px;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 5px #cccccc;
+	position: absolute;
+	left: 36.5%;
+	right:5px;
+	
+	width: 62%;
+	overflow:auto;
+	height:400px;
+	/* height:auto!important;     
+    min-height:300px; */
+    margin-left:auto;margin-right:auto;
+    text-align: center;
+}
+
+.box_gragh_full {
+	margin:0 auto;
+	padding: 5px;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 5px #cccccc;
+	position: absolute;
+	right:5px;
+	left:5px;
+	
+	/* height:auto!important;  */    
+	overflow:auto;
+    min-height:300px;
+    margin-left:auto;margin-right:auto;
+    text-align: center;
+}
+
+.gragh {
+	width:600px;
+	margin:0 auto;
+}
+
+.gragh_full {
+	left:10px;
+	right:10px;
+	margin:0 auto;
+}
+
+.title {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	z-index: 1;
+	width: 100%;
+	height: 45px;
+	background: #3992d0;
+	font-size: 30px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 45px;
+}
+
+.loading{  
+    width:160px;  
+    height:56px;  
+    position: absolute;  
+    top:50%;  
+    left:50%;  
+    line-height:56px;  
+    color:#fff;  
+    padding-left:60px;  
+    font-size:15px;  
+    background: #000 url(http://img.my.csdn.net/uploads/201211/14/1352886927_7549.gif) no-repeat 10px 50%;  
+    opacity: 0.7;  
+    z-index:9999;  
+    -moz-border-radius:20px;  
+    -webkit-border-radius:20px;  
+    border-radius:20px;  
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);  
+}  
+
+.text {
+	width: 60px;
+	height: 18px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555555;
+	
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 2px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow
+		ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.button {
+color: #606060;
+border: solid 1px #b7b7b7;
+background: #fff;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+background: -moz-linear-gradient(top, #fff, #ededed);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+}
+.button:hover {
+background: #ededed;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+background: -moz-linear-gradient(top, #fff, #dcdcdc);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+.button:active {
+color: #999;
+background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+background: -moz-linear-gradient(top, #ededed, #fff);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+
+.subbutton {
+	background: #ffffff;
+	border:1px solid #bbbbbb;
+	border-radius: 5px;
+}
+
+.subbutton:active {
+	background: #ffffff;
+	border:1px solid #c4e1ff;
+	border-radius: 5px;
+
+}
+
+.subbutton:focus {
+	border:0px solid #bbbbbb;
+    background-color: #c4e1ff;
+}
+
+/* #domain_Content {
+	width: 200px;
+}
+#container {
+	width: 900px;
+} */
+
+.sortable {
+	background: #76AEF0;
+	table-layout: fixed
+}
+
+.sortable tr {
+	background: #E5F1FF;
+	height: 20px
+}
+
+.sortheader {
+	color: #fff;
+	text-decoration: none
+}
+/*超出单元格隐藏内容*/
+.sortable th,.sortable td {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis
+}
+
+.head th {
+	background: #76AEF0;
+	color: #fff;
+	filter: progid:DXImageTransform.microsoft.gradient(gradienttype=0,
+		startColorStr=#5075B4, endColorStr=#78B1F3 )
+}
+
+.list th {
+	color: #000;
+	font-weight: normal;
+	border-top: 1px solid #fff
+}
+
+.list td {
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff
+}
+/*拖动单元格*/
+.resizeDiv {
+	width: 2px;
+	overflow: hidden;
+	float: right;
+	cursor: col-resize
+}
+
+.sortarrow {
+	color: #ffc;
+	font-weight: normal
+}
+
+/*鼠标滑过行变色*/
+.sortable tr:hover {
+	background: RGB(255, 236, 141);
+}
+
+/*查询页面各个标签的样式*/
+<!--
+UL.tabNavigation {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	line-height: 30px;
+	background-color: RGB(209, 223, 236);
+}
+
+UL.tabNavigation LI {
+	display: inline;
+}
+
+UL.tabNavigation LI A {
+	padding: 3px 5px;
+	background-color: RGB(209, 223, 236);
+	text-decoration: none;
+	border: thin solid RGB(255, 255, 225);
+}
+
+UL.tabNavigation LI A.selected,UL.tabNavigation LI A:hover {
+	background-color: #25A0F1;
+	color: #fff;
+	padding-top: 7px;
+	padding-bottom: 8px;
+	font-weight: bold;
+}
+
+UL.tabNavigation LI A:focus {
+	outline: 0;
+}
+
+div.tabs>div {
+	padding: 5px;
+	margin-top: 1px;
+	#border: 2px solid #25A0F1;
+	z-index: 10;
+}
+
+div.tabs>div h2 {
+	margin-top: 0;
+}
+
+--> /*固定时间输入框的表格样式*/
+.topzero {
+	margin-bottom: 4px;
+}
+
+/*点击高级展开后各个查询框的标签*/
+.hightitle {
+	color: RGB(235, 133, 7);
+	font-size: 16px; /*字体大小*/
+	font-weight: bold; /*粗体*/
+	margin-top: 6px;
+	text-align: left;
+}
+
+/*各个单独查询按钮样式*/
+.subbtn {
+	display: true;
+}
+
+.subbtn1 {
+	display: none;
+}
+
+/*点击“高级”前，单独的查询框表格宽度*/
+.oldTable {
+	position: relative;
+	width: 100%;
+	border: thin solid;
+	text-align: left;
+}
+.container{
+	position: relative;
+	width: 800px;
+	text-align: left;
+}
+
+.oldTable tr th,.oldTable tr td {
+	border: thin solid #CFBCAA;
+}
+
+/*点击“高级”后，单独的查询框表格宽度*/
+.newTable {
+	width: auto;
+}
+
+/*复合查询按钮的样式*/
+.allSearchDiv {
+	position: relative;
+	text-align: right;
+	border: thin solid;
+	margin-top: 2px;
+	width: 100%;
+	/* display:none; */
+}

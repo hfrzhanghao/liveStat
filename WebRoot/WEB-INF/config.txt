@@ -1,0 +1,7 @@
+{ "_comment":"serverAdd指获取统计信息的接口地址，relayStateURL指获取所有relay状态的接口地址,timeOut指超时时间(最后3个0代表一秒)",
+  "configInfo": {
+    "serverAdd":"http://localhost:8080/liveAnalysis/",
+    "relayStateURL":"http://210.51.13.5:80/rcMongoServer/relay/GetRelayInfo",
+    "timeOut":60000
+  }
+}

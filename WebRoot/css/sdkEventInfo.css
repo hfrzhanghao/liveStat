@@ -1,0 +1,182 @@
+/*flashEventInfo.jsp中的样式*/
+body {
+	font: normal 14px/20px arial, '宋体';
+	/*默认样式，字体大小14px,行高20px，先采用arial字体，如没有，采用宋体*/
+	/* background-image: url(../../images/bg.jpg); */
+	padding: 5px;
+}
+
+/*标题*/
+.macuidEvent_title {
+	position: relative; color : RGB( 51, 158, 53);
+	text-align: center;
+	color: RGB(51, 158, 53);
+}
+
+/*事件展示页面的标题样式*/
+.sdkTitle{
+	margin:0 auto;
+	text-align:center;
+	font-size:25px;
+	color:#FFFFFF;
+	padding:3px;
+	background:#DCC05B;
+}
+
+/*游标*/
+.cursor_div{
+	margin:1px;
+	height:130px;
+	border:thin solid RGB(204, 204, 204);
+}
+/*sdk概要信息和警告信息的总体*/
+.sdkSummary_warning_div{
+	margin:1px;
+	float:left;
+	border:thin solid RGB(204, 204, 204);
+}
+/*sdk概要信息*/
+#sdkSummary_div{
+	margin:1px;
+	float:left;
+	width:850px;
+	border:thin solid RGB(204, 204, 204);
+}
+
+/*sdk几个模块的样式*/
+.oneOfSDK{
+	position:relative;
+	margin:5px auto;
+	padding:5px;
+	width:80%;
+	font-size: 30px;
+	line-height:35px;
+	border:thin solid RGB(204, 204, 204);
+	background:#6BB7BD;
+}
+
+/*警告信息*/
+#warning_div{
+	margin:1px;
+	float:left;
+	width:355px;
+	height:450px;
+	overflow:auto;
+	border:thin solid RGB(204, 204, 204);
+}
+
+/*服务器端日志下载列表展示的样式*/
+#serverLog_div{
+	clear:left;
+	padding:5px;
+	color:#5B5B5B;
+}
+
+/*sdk某一部分的日志信息列表样式*/
+#sdkInfoList_div{
+	clear:left;
+	margin:1px;
+	border:thin solid RGB(204, 204, 204);
+}
+
+/*sdk概要信息,callDetail.jsp用*/
+#sdkSummary_div_zb{
+	margin:1px;
+	float:left;
+	width:820px;
+	border:thin solid RGB(204, 204, 204);
+}
+/*警告信息,callDetail.jsp用*/
+#warning_div_zb{
+	margin:1px;
+	float:left;
+	width:355px;
+	border:thin solid RGB(204, 204, 204);
+}
+
+/*服务器端日志下载列表展示的样式,callDetail.jsp用*/
+#serverLog_div_zb{
+	clear:left;
+	padding:5px;
+	color:#5B5B5B;
+}
+/*sdk某一部分的日志信息列表样式,callDetail.jsp用*/
+#sdkInfoList_div_zb{
+	clear:left;
+	margin:1px;
+	border:thin solid RGB(204, 204, 204);
+}
+/*sdk概要信息,callDetail.jsp用*/
+#sdkSummary_div_bz{
+	margin:1px;
+	float:left;
+	width:820px;
+	border:thin solid RGB(204, 204, 204);
+}
+/*警告信息,callDetail.jsp用*/
+#warning_div_bz{
+	margin:1px;
+	float:left;
+	width:355px;
+	border:thin solid RGB(204, 204, 204);
+}
+/*服务器端日志下载列表展示的样式,callDetail.jsp用*/
+#serverLog_div_bz{
+	clear:left;
+	padding:5px;
+	color:#5B5B5B;
+}
+/*sdk某一部分的日志信息列表样式,callDetail.jsp用*/
+#sdkInfoList_div_bz{
+	clear:left;
+	margin:1px;
+	border:thin solid RGB(204, 204, 204);
+}
+
+/*包含“由mac和guid确定事件”的最外层边框*/
+#macuidEventDiv{
+	position: relative;
+	margin: 0 auto;
+	border: thin solid RGB(204, 204, 204);
+	width: 1224px;
+}
+
+/*包含“由mac和guid确定事件”中两个子标签的外层边框*/
+#macuidEventInfoDiv{
+	border:2px solid RGB(37,160,241);
+}
+
+<!--
+UL.macuidEvent_tabs {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background-color: RGB(209,223,236);
+	line-height: 25px;
+}
+
+UL.macuidEvent_tabs LI {
+	display: inline;
+}
+
+UL.macuidEvent_tabs LI A {
+	padding: 3px 5px;
+	background-color: RGB(209,223,236);
+	text-decoration: none;
+	font-size: 12px;
+	border: thin solid RGB(255,255,225);
+}
+/*点击后*/
+UL.macuidEvent_tabs LI A.selected,UL.macuidEvent_tabs LI A:hover {
+	background-color: RGB(37,160,241);
+	color: #FFFFFF;
+	font-weight: bold;
+	padding-top: 4px;
+	padding-bottom: 7px;
+	border:none;
+}
+
+UL.macuidEvent_tabs LI A:focus {
+	outline: 0;
+}
+-->

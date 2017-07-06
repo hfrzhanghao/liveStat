@@ -1,0 +1,62 @@
+/*flashEventInfo.jsp中的样式*/
+body {
+	font: normal 14px/20px arial, '宋体';
+	/*默认样式，字体大小14px,行高20px，先采用arial字体，如没有，采用宋体*/
+	/* background-image: url(../../images/bg.jpg); */
+	padding: 5px;
+}
+
+/*标题*/
+.macGuidEventCall_title {
+	position: relative; color : RGB( 51, 158, 53);
+	text-align: center;
+	color: RGB(51, 158, 53);
+}
+
+/*包含“由mac和guid确定事件”的最外层边框*/
+#macGuidEventCallDiv{
+	position: relative;
+	margin: 0 auto;
+	border: thin solid RGB(204, 204, 204);
+	width: 1224px;
+}
+
+/*包含“由mac和guid确定事件”中两个子标签的外层边框*/
+#macGuidEventCallInfoDiv{
+	border:2px solid RGB(37,160,241);
+}
+
+<!--
+UL.macGuidEventCall_tabs {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background-color: RGB(209,223,236);
+	line-height: 25px;
+}
+
+UL.macGuidEventCall_tabs LI {
+	display: inline;
+}
+
+UL.macGuidEventCall_tabs LI A {
+	padding: 3px 5px;
+	background-color: RGB(209,223,236);
+	text-decoration: none;
+	font-size: 12px;
+	border: thin solid RGB(255,255,225);
+}
+/*点击后*/
+UL.macGuidEventCall_tabs LI A.selected,UL.macGuidEventCall_tabs LI A:hover {
+	background-color: RGB(37,160,241);
+	color: #FFFFFF;
+	font-weight: bold;
+	padding-top: 4px;
+	padding-bottom: 7px;
+	border:none;
+}
+
+UL.macGuidEventCall_tabs LI A:focus {
+	outline: 0;
+}
+-->

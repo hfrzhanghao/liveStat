@@ -1,0 +1,16 @@
+/*flash_sdk_Search.jsp中的样式*/
+body {
+	font: normal 14px/20px arial, '宋体';
+	/*默认样式，字体大小14px,行高20px，先采用arial字体，如没有，采用宋体*/
+	/* background-image: url(../../images/bg.jpg); */
+	padding: 5px;
+}
+
+/*鼠标滑过变色*/
+.guidTable tr:hover{
+	background: RGB(255, 236, 141);
+}
+
+.guidTable{
+	width:100%;
+}

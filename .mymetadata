@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="liveStat"
+  id="myeclipse.1398232529623"
+  context-root="/liveStat"
+  j2ee-spec="5.0"
+  archive="liveStat.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
