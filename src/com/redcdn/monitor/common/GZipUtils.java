@@ -229,7 +229,8 @@ public  class GZipUtils {
     
     private static String inputStr = "zlex@zlex.org,snowolf@zlex.org,zlex.snowolf@zlex.org";  
     
-    public static void main(String[] args) throws Exception {
+    @SuppressWarnings("static-access")
+	public static void main(String[] args) throws Exception {
     	
     	inputStr = "fsfssxxxxxxxxxxs";
     	

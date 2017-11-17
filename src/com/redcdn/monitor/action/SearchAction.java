@@ -18,21 +18,22 @@ import com.redcdn.monitor.common.CommonConstants;
 public class SearchAction extends BaseAction {
 	private static final long serialVersionUID = 2L;
 
-	private int pageSize = 25;//一页显示多少条记录
+	private int pageSize = 25;// 一页显示多少条记录
 
 	private int currPage;// 当前页
 	private String startTime;// 开始时间
 	private String endTime;// 结束时间
 	private String playType;
-	
+
 	private String ip;
 	private String url;
 	private String domain;
+	private String domainNameFilter;
 	private String isp;
 	private String lockCount;
 	private String firstPicMin;
 	private String firstPicMax;
-	
+
 	private String openType;
 	private String businessID;
 	private String userName;
@@ -40,9 +41,9 @@ public class SearchAction extends BaseAction {
 	private String duration;
 	private String firstPicDurationSelect;
 	private String firstPicDuration;
-	
+
 	private String userAccount;
-	
+
 	private String service;
 	/**
 	 * 转化成毫秒的开始时间
@@ -67,60 +68,65 @@ public class SearchAction extends BaseAction {
 
 		form.add("startTime", startTime + "");
 		form.add("endTime", endTime + "");
-		
-		if(!"".equals(domain) && domain != null){
+
+		if (!"".equals(domain) && domain != null) {
 			form.add("domain", domain + "");
 		}
-		
-		if(!"".equals(isp) && isp != null){
+
+		if (!"".equals(domainNameFilter) && domainNameFilter != null) {
+			form.add("domainNameFilter", domainNameFilter + "");
+		}
+
+		if (!"".equals(isp) && isp != null) {
 			form.add("isp", isp + "");
 		}
-		
-		if(url != null && !"".equals(url)){
+
+		if (url != null && !"".equals(url)) {
 			form.add("url", url + "");
 		}
-		
-		if(openType != null && !"".equals(openType)){
+
+		if (openType != null && !"".equals(openType)) {
 			form.add("openType", openType + "");
 		}
-		
-		if(businessID != null && !"".equals(businessID)){
+
+		if (businessID != null && !"".equals(businessID)) {
 			form.add("businessID", businessID + "");
 		}
-		
-		if(userName != null && !"".equals(userName)){
+
+		if (userName != null && !"".equals(userName)) {
 			form.add("userName", userName + "");
 		}
-		
-		if(durationSelect != null && !"".equals(durationSelect)){
+
+		if (durationSelect != null && !"".equals(durationSelect)) {
 			form.add("durationSelect", durationSelect + "");
 		}
-		
-		if(duration != null && !"".equals(duration)){
+
+		if (duration != null && !"".equals(duration)) {
 			form.add("duration", duration + "");
 		}
-		
-		if(firstPicDurationSelect != null && !"".equals(firstPicDurationSelect)){
+
+		if (firstPicDurationSelect != null && !"".equals(firstPicDurationSelect)) {
 			form.add("firstPicDurationSelect", firstPicDurationSelect + "");
 		}
-		
-		if(firstPicDuration != null && !"".equals(firstPicDuration)){
+
+		if (firstPicDuration != null && !"".equals(firstPicDuration)) {
 			form.add("firstPicDuration", firstPicDuration + "");
 		}
-		
+
 		form.add("service", "all");
-		
+
 		JSONObject jsonObject = null;
 		try {
-			// 将查询框表单值传送到monitorServer
-			//if(playType.equals("1")){
-			jsonObject = proxy.postFormWithReturnJSONObject1(CommonConstants.LIVE_ANALYSIS_URL, form);
+			//
+			if (CommonConstants.OLD_DATA == 1
+					&& ((duration != null && !"".equals(duration)) || (firstPicDuration != null && !"".equals(firstPicDuration)) || Long.parseLong(startTime) < Long
+							.parseLong(CommonConstants.NEW_DATA_TIME))) {
+				jsonObject = proxy.postFormWithReturnJSONObject1(CommonConstants.LIVE_ANALYSIS_URL, form);
+			} else {
+				jsonObject = proxy.postFormWithReturnJSONObject1(CommonConstants.LIVE_ANALYSIS_URL_PRETREAT, form);
+			}
+
 			System.out.println("数据返回成功！");
-			/*}else{
-				jsonObject = proxy.postFormWithReturnJSONObject1(CommonConstants.DEMAND_ANALYSIS_URL, form);
-			}*/
-			
-			//logger.info("CDN统计getGraghData返回数据成功");
 
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
@@ -133,93 +139,12 @@ public class SearchAction extends BaseAction {
 		}
 		return null;
 	}
-	
-	public String getUserData() {
-		MultiValueMap<String, Object> form = new LinkedMultiValueMap<String, Object>();
 
-		form.add("startTime", startTime + "");
-		form.add("endTime", endTime + "");
-		form.add("service", service);
-		form.add("userAccount", userAccount);
-		
-		if(!"".equals(domain) && domain != null){
-			form.add("domain", domain + "");
-		}
-		
-		if(!"".equals(isp) && isp != null){
-			form.add("isp", isp + "");
-		}
-		
-		if(url != null && !"".equals(url)){
-			form.add("url", url + "");
-		}
-		
-		if(openType != null && !"".equals(openType)){
-			form.add("openType", openType + "");
-		}
-		
-		if(businessID != null && !"".equals(businessID)){
-			form.add("businessID", businessID + "");
-		}
-		
-		if(userName != null && !"".equals(userName)){
-			form.add("userName", userName + "");
-		}
-		
-		if(durationSelect != null && !"".equals(durationSelect)){
-			form.add("durationSelect", durationSelect + "");
-		}
-		
-		if(duration != null && !"".equals(duration)){
-			form.add("duration", duration + "");
-		}
-		
-		if(firstPicDurationSelect != null && !"".equals(firstPicDurationSelect)){
-			form.add("firstPicDurationSelect", firstPicDurationSelect + "");
-		}
-		
-		if(firstPicDuration != null && !"".equals(firstPicDuration)){
-			form.add("firstPicDuration", firstPicDuration + "");
-		}
-		
-		if(lockCount != null && !"".equals(lockCount)){
-			form.add("lockCount",lockCount);
-		}
-		
-		if(firstPicMin != null && !"".equals(firstPicMin)){
-			form.add("firstPicMin",firstPicMin);
-		}
-		
-		if(firstPicMax != null && !"".equals(firstPicMax)){
-			form.add("firstPicMax",firstPicMax);
-		}
-		
-		JSONObject jsonObject = null;
-		try {
-			// 将查询框表单值传送到monitorServer
-			//if(playType.equals("1")){
-			jsonObject = proxy.postFormWithReturnJSONObject1(CommonConstants.LIVE_USER_URL, form);
-			/*}else{
-				jsonObject = proxy.postFormWithReturnJSONObject1(CommonConstants.DEMAND_USER_URL, form);
-			}*/
-			
-			logger.info("CDN统计getUserData返回数据成功");
-
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-		}
-
-		if (isAjax(request)) {
-			return renderJsonString(jsonObject.toString());
-		}
-		return null;
-	}
-	
 	/**
 	 * 处理开始时间、结束时间，设置参数
 	 * 
 	 * @author
-	 * @date 
+	 * @date
 	 */
 	public void toSetConfig() {
 
@@ -246,7 +171,7 @@ public class SearchAction extends BaseAction {
 		}
 		return 0;
 	}
-	
+
 	public String getStartTime() {
 		return startTime;
 	}
@@ -262,7 +187,7 @@ public class SearchAction extends BaseAction {
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
-	
+
 	public String getPlayType() {
 		return playType;
 	}
@@ -274,6 +199,7 @@ public class SearchAction extends BaseAction {
 	public String getIp() {
 		return ip;
 	}
+
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
@@ -338,6 +264,14 @@ public class SearchAction extends BaseAction {
 		this.domain = domain;
 	}
 
+	public String getDomainNameFilter() {
+		return domainNameFilter;
+	}
+
+	public void setDomainNameFilter(String domainNameFilter) {
+		this.domainNameFilter = domainNameFilter;
+	}
+
 	public String getIsp() {
 		return isp;
 	}
@@ -377,6 +311,7 @@ public class SearchAction extends BaseAction {
 	public void setFirstPicMax(String firstPicMax) {
 		this.firstPicMax = firstPicMax;
 	}
+
 	public String getOpenType() {
 		return openType;
 	}

@@ -42,7 +42,7 @@
                 }
             }
             return result;
-        }
+        };
 
     function MLoading(dom,options) {
         options=options||{};
@@ -198,5 +198,5 @@
                 }
             }
         });
-    }
+    };
 }));

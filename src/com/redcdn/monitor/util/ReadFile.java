@@ -10,8 +10,6 @@ import java.net.URLDecoder;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
-import sun.util.logging.resources.logging;
-
 /**
  * 读取配置文件
  * 
@@ -40,12 +38,12 @@ public class ReadFile {
 			}
 			br.close();
 		} catch (Exception e) {
-			Logger.getLogger(ReadFile.class).error("读取WEB-INF/config.txt配置文件出错"+e);
+			Logger.getLogger(ReadFile.class).error("读取WEB-INF/config.txt配置文件出错" + e);
 		}
 		String out = "";
 		byte[] b = sb.toString().getBytes("UTF-8");
-		//System.out.println(b[0]);
-		//如果是.txt文件，手动修改配置文件后在文件头部产生的字符其值为-17，如果是.xml文件，产生的字符其值为好像是93，这个需要待测试
+		// System.out.println(b[0]);
+		// 如果是.txt文件，手动修改配置文件后在文件头部产生的字符其值为-17，如果是.xml文件，产生的字符其值为好像是93，这个需要待测试
 		if (b[0] == -17) {// 防止用记事本修改文件造成的BOM
 			try {
 				out = new String(b, 3, b.length - 3, "UTF-8");

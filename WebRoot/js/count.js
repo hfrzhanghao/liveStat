@@ -361,6 +361,7 @@ function showStat() {
 	var isp = $("#isp").val();
 	var openType = $("#openType").val();
 	var businessID = $("#aboutBusinessID").val();
+	var domainNameFilter = $("#domainNameFilter").val();
 	var userName = $("#userName").val();
 	var durationSelect = $("#durationSelect").val();
 	var duration = $("#duration").val();
@@ -371,7 +372,7 @@ function showStat() {
 		url : "search.getGraghData.action",
 		dataType : "json",
 		data : "startTime=" + startTime + "&endTime=" + endTime + "&playType=" + playType + "&url=" + url + "&domain=" + domain + "&isp=" + isp + 
-		"&openType=" + openType + "&businessID=" + businessID + "&userName=" + userName + "&durationSelect=" + durationSelect + "&duration=" + duration + 
+		"&openType=" + openType + "&businessID=" + businessID + "&domainNameFilter=" + domainNameFilter + "&userName=" + userName + "&durationSelect=" + durationSelect + "&duration=" + duration + 
 		"&firstPicDurationSelect=" + firstPicDurationSelect + "&firstPicDuration=" + firstPicDuration,
 		beforeSend : function() {
 			$("#element").mLoading("show");

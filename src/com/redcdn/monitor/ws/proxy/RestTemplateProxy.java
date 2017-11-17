@@ -1,10 +1,6 @@
 package com.redcdn.monitor.ws.proxy;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -24,9 +20,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
-
-import com.redcdn.monitor.common.HttpPostMethod;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * spring类
@@ -162,13 +155,7 @@ public class RestTemplateProxy implements InitializingBean {
 			logger.error("调用接口:" + url + "失败" + "(" + e.getMessage() + ")");
 			return null;
 		}
-		//System.out.println(json);
 		return getJSONObject(json);
-	}
-	
-	// TODO spring中被用到的
-	public HttpPostMethod httpPostMothed(String url) {
-			return new HttpPostMethod(baseUrl + url);
 	}
 	
 
@@ -222,7 +209,6 @@ public class RestTemplateProxy implements InitializingBean {
 		connection.setRequestMethod("POST");
 		connection.setDoOutput(true);
 		connection.setDoInput(true);
-		// connection.setRequestProperty("Accept", "text/xml");
        
 		OutputStream out = (OutputStream) connection.getOutputStream();
 

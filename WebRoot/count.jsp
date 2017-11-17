@@ -18,9 +18,6 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
 <link href="css/count.css" rel="stylesheet" type="text/css" />
@@ -163,6 +160,11 @@
 		<div class="form-group col-md-4">
 			<label for="aboutBusinessID">微频道</label> <input type="text"
 				class="form-control" id="aboutBusinessID" placeholder="微频道">
+		</div>
+		
+		<div class="form-group col-md-3">
+			<label for="domainNameFilter">域名</label> <input type="text"
+				class="form-control" id="domainNameFilter" placeholder="域名">
 		</div>
 
 		<div class="form-group col-md-1">

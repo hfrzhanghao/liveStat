@@ -21,24 +21,24 @@ $(document).ready(function() {
 		var check = $(this).is(":checked");
 		$checkboxTag.each(function() {
 			$(this).prop("checked", check);
-		})
-	})
+		});
+	});
 
 	// 
 	function deleteLayersss() {
 		$(".layer").show();
 		$(".deleteLayer").click(function() {
 			$(".deleLayer").show();
-		})
+		});
 		$(".delCancelButton").click(function() {
 			$(".deleLayer").hide();
-		})
+		});
 	}
 	//删除会议室
 	$(".deleteLayer").live("click",function() {
 		  var roomid = $(this).attr("dele");
 		deleteLayer("删除会议","确定删除?",roomid);
-	})
+	});
 
 	//删除会议室
 	$("#delList").live("click",function() {
@@ -46,13 +46,13 @@ $(document).ready(function() {
 		var ids="";
 		$checkboxTag.each(function() {
 			ids += $(this).val()+",";
-		})
+		});
 		if(ids != ""){
 			deleteLayer("删除会议","确定删除?",ids);
 		}else{
 			alert("请选择要删除的会议！");
 		}
-	})
+	});
 	
 
 	$(".editopenLayer").live("click",function() {
@@ -66,12 +66,12 @@ $(document).ready(function() {
 			
 			
 		editLayer(id,name,info,begindate,enddate,picture,persons);
-	})
+	});
 	
 	$("#creatOffice").live("click",function(){
 		createLayer();
 	});
-})
+});
 
 // ===============
 // 编辑会议室

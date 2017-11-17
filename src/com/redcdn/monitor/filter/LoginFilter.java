@@ -30,6 +30,7 @@ public class LoginFilter implements Filter {
 
 	private static Set<String> ignoreUriSet = new HashSet<String>();
 
+	@SuppressWarnings("unused")
 	private RestTemplateProxy proxy;
 
 	static {
@@ -92,11 +93,6 @@ public class LoginFilter implements Filter {
 					httpServletResponse.sendError(900, returnUrl);
 					return;
 				}
-
-				//httpServletResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
-				//return;
-				
-				
 				logger.info(returnUrl + "，用户没有登录，跳转到登录页面");
 				httpServletResponse.sendRedirect(httpRequest.getContextPath()
 					+ "/login.jsp?returnUrl=" + returnUrl);

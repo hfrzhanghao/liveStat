@@ -8,18 +8,25 @@ public final class CommonConstants {
 	public static final String USER_LOGIN_COOKIE = "userlogincookie";
 	public static final String LIVE_ANALYSIS_URL_TEMP;
 	public static final String LIVE_ANALYSIS_URL;
+	public static final String LIVE_ANALYSIS_URL_PRETREAT;
 	public static final String LIVE_USER_URL;
+	public static final String NEW_DATA_TIME;
+	public static final int OLD_DATA;
 	//public static final String DEMAND_ANALYSIS_URL;
 	//public static final String DEMAND_USER_URL;
 	static {
 		LIVE_ANALYSIS_URL_TEMP = ResourceBundle.getBundle("config").getString("liveAnalysisURL");
+		NEW_DATA_TIME = ResourceBundle.getBundle("config").getString("new_data_time");
 		if(!LIVE_ANALYSIS_URL_TEMP.endsWith("/")){
+			LIVE_ANALYSIS_URL_PRETREAT = LIVE_ANALYSIS_URL_TEMP + "/all/liveCountWithPretreat";
 			LIVE_ANALYSIS_URL = LIVE_ANALYSIS_URL_TEMP + "/all/liveCount";
 			LIVE_USER_URL = LIVE_ANALYSIS_URL_TEMP + "/user/lockCount";
 		}else{
+			LIVE_ANALYSIS_URL_PRETREAT = LIVE_ANALYSIS_URL_TEMP + "/all/liveCountWithPretreat";
 			LIVE_ANALYSIS_URL = LIVE_ANALYSIS_URL_TEMP + "all/liveCount";
 			LIVE_USER_URL = LIVE_ANALYSIS_URL_TEMP + "user/lockCount";
 		}
+		OLD_DATA = Integer.parseInt(ResourceBundle.getBundle("config").getString("old_data"));
 		
 		//DEMAND_ANALYSIS_URL = ResourceBundle.getBundle("config").getString("demandAnalysisURL") + "/all/liveCount";
 		//DEMAND_USER_URL = ResourceBundle.getBundle("config").getString("demandAnalysisURL") + "/user/lockCount";
