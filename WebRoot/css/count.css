@@ -9,13 +9,14 @@ count.jsp中的样式
 	height:450px;
 	overflow:scroll;
 }
+
 #os-select{
 	margin:5px;
 	padding:5px;
 	height:45px;
 	overflow:hidden;
 }
-#flow-select{
+#flow-select,#pop{
     margin: 5px;
     padding: 5px;
     height: 45px;

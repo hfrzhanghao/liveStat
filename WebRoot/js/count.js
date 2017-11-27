@@ -18,6 +18,7 @@ var userCLlist = new Array();
 var userleavelist = new Array();
 var useronlinelist = new Array();
 var opentypelist = new Array();
+var poplist = new Array();
 
 var province_data;
 var city_data;
@@ -33,6 +34,7 @@ var userCL_data;
 var userleave_data;
 var useronline_data;
 var opentype_data;
+var pop_data;
 
 $(document).ready(function() {
 	$('#navTab a').click(function(e) {
@@ -87,6 +89,7 @@ $(document).ready(function() {
 		$("#browser_container").html("");
 		$("#userCL_container").html("");
 		$("#flow_container").html("");
+		$("#pop_container").html("");
 		$("#userOnline_container").html("");
 		$("#openType_container").html("");
 		
@@ -348,6 +351,79 @@ function showTopNUser(){
 	});
 }
 
+//为String添加startWith方法
+String.prototype.startWith=function(str){     
+	var reg=new RegExp("^"+str);     
+	return reg.test(this);        
+};
+//为String添加trim方法
+String.prototype.trim=function(){
+	return this.replace(/(^\s*)|(\s*$)/g, '');
+};
+
+function showTopNPop(){
+	var startTime = dateToUTC($("#startTime").val());// 开始时间
+	var endTime = dateToUTC($("#endTime").val());// 结束时间
+	var domainName = $("#domain-name").val().trim();//域名
+	if(domainName.startWith("http://")){
+		domainName = domainName.split("http://")[1];
+	}
+	if(domainName.startWith("https://")){
+		domainName = domainName.split("https://")[1];
+	}
+	var topN = $("#top-n").val();//topN
+	
+	$.ajax({
+		type:"post",
+		url : "search.getPopData.action",
+		dataType : "json",
+		data : "startTime=" + startTime + "&endTime=" + endTime + "&domainName=" + domainName + "&topN=" + topN + "&service=showTopNPop",
+		beforeSend : function() {
+			$("#element").mLoading("show");
+			$("#element").css({
+				"z-index":1000
+			});
+		},
+		complete : function() {
+			$("#element").mLoading("hide");
+			$("#element").css({
+				"z-index":0
+			});
+		},
+		success : function(data) {
+			if (data.result == 0) {
+				//拆分数据
+				pop_data = data.data;
+				//以下展示表格
+				showPop(pop_data,"pop_container","showPop");
+			} else {
+				$("#datastate").html("此查询条件下无数据返回，请更换查询条件试试~~");
+			}
+		},
+		error : function(request, textStatus, errorThrown) {
+			if (request.status == 900) {
+				window.location.href = "login.jsp";
+			}
+		}
+	});
+}
+
+function showPop(list,mainid,id){
+	var list = list;
+	
+	var tableStr = "<table id='popTab' class='table table-striped'>";
+	tableStr = tableStr + "<thead><tr><th>内容</th><th>计数</th></tr></thead><tbody id=" + id + ">";
+	
+	for ( var i = 0; i< list.length; i++) {
+		tableStr = tableStr + "<tr><td>" + list[i].content + "</td>"
+				+ "<td>" + list[i].count + "</td></tr>";
+	}
+		
+	tableStr = tableStr + "</tbody></table>";
+	$("#" + mainid).html(tableStr);
+}
+
+
 /**
  * 展示页面中的表格和饼图
  * 
@@ -468,6 +544,7 @@ function showStat() {
 		}
 	});
 }
+
 
 function showUser(list,mainid,id){
 	var list = list;

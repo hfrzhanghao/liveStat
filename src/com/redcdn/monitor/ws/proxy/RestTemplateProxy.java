@@ -158,6 +158,18 @@ public class RestTemplateProxy implements InitializingBean {
 		return getJSONObject(json);
 	}
 	
+	public JSONObject get(String url){
+		String json = null;
+		try{
+			json = restTemplate.getForObject(url, String.class)/*.getForObject(url, String.class)*/;
+		} catch (Exception e) {
+			logger.error("调用接口:" + url + "失败" + "(" + e.getMessage() + ")");
+			return null;
+		}
+		return getJSONObject(json);
+		
+	}
+	
 
 	public static HttpEntity<String> createHttpEntity(String json) {
 		HttpHeaders requestHeaders = new HttpHeaders();

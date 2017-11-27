@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 public final class CommonConstants {
 	public static final String USER_LOGIN_COOKIE = "userlogincookie";
 	public static final String LIVE_ANALYSIS_URL_TEMP;
+	
 	public static final String LIVE_ANALYSIS_URL;
 	public static final String LIVE_ANALYSIS_URL_PRETREAT;
 	public static final String LIVE_USER_URL;

@@ -1,5 +1,6 @@
 package com.redcdn.monitor.action;
 
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,6 +29,7 @@ public class SearchAction extends BaseAction {
 	private String ip;
 	private String url;
 	private String domain;
+	private String domainName = "";
 	private String domainNameFilter;
 	private String isp;
 	private String lockCount;
@@ -41,6 +43,7 @@ public class SearchAction extends BaseAction {
 	private String duration;
 	private String firstPicDurationSelect;
 	private String firstPicDuration;
+	private String topN = "";
 
 	private String userAccount;
 
@@ -125,6 +128,45 @@ public class SearchAction extends BaseAction {
 			} else {
 				jsonObject = proxy.postFormWithReturnJSONObject1(CommonConstants.LIVE_ANALYSIS_URL_PRETREAT, form);
 			}
+
+			System.out.println("数据返回成功！");
+
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+		}
+
+		if (isAjax(request)) {
+			String respons = renderJsonString(jsonObject.toString());
+			System.out.println("页面数据产生成功！");
+			return respons;
+		}
+		return null;
+	}
+
+	public String getPopData() {
+		MultiValueMap<String, Object> form = new LinkedMultiValueMap<String, Object>();
+
+		form.add("startTime", startTime + "");
+		form.add("endTime", endTime + "");
+
+		if (!"".equals(domainName) && domainName != null) {
+			form.add("domainName", domainName + "");
+		} else {
+			form.add("domainName", "live.butel.com");
+		}
+		if (!"".equals(topN) && topN != null) {
+			form.add("topN", topN);
+		} else {
+			form.add("topN", 10);
+		}
+		String domainName1 = (domainName == null || domainName.equals("")) ? "live.butel.com" : domainName;
+		String topN1 = (topN == null || topN.equals("")) ? "10" : topN;
+		String params = "\"startTime\":" + startTime + ",\"endTime\":" + endTime + ",\"domainName\":\"" + domainName1 + "\",\"topN\":" + topN1;
+
+		JSONObject jsonObject = null;
+		try {
+			String dataT = URLEncoder.encode("{") + params + URLEncoder.encode("}");
+			jsonObject = proxy.get("http://127.0.0.1:8080/liveAnalysis/external/externalService?service=showPopular&params=" + dataT);
 
 			System.out.println("数据返回成功！");
 
@@ -374,6 +416,22 @@ public class SearchAction extends BaseAction {
 
 	public void setUserAccount(String userAccount) {
 		this.userAccount = userAccount;
+	}
+
+	public String getTopN() {
+		return topN;
+	}
+
+	public void setTopN(String topN) {
+		this.topN = topN;
+	}
+
+	public String getDomainName() {
+		return domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
 	}
 
 }

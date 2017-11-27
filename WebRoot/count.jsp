@@ -193,11 +193,13 @@
 		</li>
 		<li><a href="#ninth" data-toggle="tab">浏览器类型</a>
 		</li>
-		<li><a href="#tenth" data-toggle="tab">用户进入/离开/在线情况</a>
+		<li><a href="#tenth" data-toggle="tab">用户在线情况</a>
 		</li>
 		<li><a href="#eleventh" data-toggle="tab">流量曲线</a>
 		</li>
 		<li><a href="#twelveth" data-toggle="tab">打开方式</a>
+		</li>
+		<li><a href="#thirteenth" data-toggle="tab">热度</a>
 		</li>
 	</ul>
 
@@ -512,7 +514,8 @@
 					</div>
 					<div id="openType_Content"></div>
 					<div id="openType_tip"class="well">
-						notComplete指该时间段内获取的数据不完整，导致读取不到打开方式。</div>
+						notComplete指该时间段内获取的数据不完整，导致读取不到打开方式。
+					</div>
 				</div>
 			</div>
 			<div class="col-md-6">
@@ -523,6 +526,29 @@
 					<div id="openType_container" class=pie-gragh></div>
 				</div>
 			</div>
+		</div>
+		
+		<div id="thirteenth" class="tab-pane" >
+		
+			
+			<div class="panel panel-default" id="pop">
+				<form class="form-inline">
+    				<label for="domain-name">域名</label>
+    				<input type="text" class="form-control" id="domain-name" placeholder="live.butel.com">
+    				<label for="top-n">topN</label>
+    				<input type="text" class="form-control" id="top-n" placeholder="10">
+  					<input type="button" class="btn btn-default" onclick="showTopNPop()" value="统计">
+				</form>
+			</div>
+			
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">播放内容热度排名表</h3>
+					</div>
+					<div id="pop_container">
+				</div>
+			</div>	
 		</div>
 	</div>
 </body>
